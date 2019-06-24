@@ -1,6 +1,33 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
-   
+
+# Rubric
+1. The code compiles correctly
+2. The car is able to drive at least 4.32 miles without incident.
+3. The car drives according to the speed limit.
+4. Max Acceleration and Jerk are not Exceeded.
+5. No Collisions
+6. The car is able to change lanes when needed. 
+
+# Model Documentation
+The codebase is driven by main.cpp and is divided into 3 main parts:-
+
+1. **Read waypoint and telemetry data. (line 29-117) **
+Read data/highway_map.csv there is a list of waypoints that go all the way around the track.
+The track contains a total of 181 waypoints, with the last waypoint mapping back around to the first. The waypoints are in the middle of the double-yellow dividing line in the center of the highway.
+
+2. **Using Sensor Fusion Data for other cars to handle lane changes (line 118-195)** 
+ - If the car is within 30m ahead, check if you can change lanes. If not, slow down and move forward
+ - If you change lanes, check left if its safe and then do it. 
+ - If not, check right and if its safe and then do it
+
+3. **Trajectory Generation (line 210-310)**
+We take all the left over points from the previous path and it will always be lesser than 50. The simulator runs 50 frames a seconds. So we need to fill the remaining points in the future X, Y values vector. We lookahead an arbritary 30m ahead
+and try to generate points. Since we have generate a smooth curve, we first linearize it, then generate Y points from the X points by using the Spline function. Since Spline was also used to fit the ptsx and ptsy, now all 50 points are fit using Spline producing a smooth jerkless curve for the simulator to accept and move the car.
+
+
+
+
 ### Simulator.
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).  
 
