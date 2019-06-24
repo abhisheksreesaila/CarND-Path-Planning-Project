@@ -153,13 +153,13 @@ int main() {
                 check_car_s += ((double)prev_size*0.02*check_speed);
 
                 if ( car_lane == lane ) {
-                  // Car in our lane.
+                  
                   car_ahead |= check_car_s > car_s && check_car_s - car_s < 30;
                 } else if ( car_lane - lane == -1 ) {
-                  // Car left
+           
                   car_left |= car_s - 30 < check_car_s && car_s + 30 > check_car_s;
                 } else if ( car_lane - lane == 1 ) {
-                  // Car right
+                 
                   car_right |= car_s - 30 < check_car_s && car_s + 30 > check_car_s;
                 }
             }
@@ -168,15 +168,15 @@ int main() {
             double speed_diff = 0;
             const double MAX_SPEED = 49.5;
             const double MAX_ACC = .224;
-            if ( car_ahead ) { // Car ahead
+            if ( car_ahead ) { 
 
 
               if ( !car_left && lane > 0 ) {
                 // if there is no car left and there is a left lane.
-                lane--; // Change lane left.
+                lane--; 
               } else if ( !car_right && lane != 2 ){
                 // if there is no car right and there is a right lane.
-                lane++; // Change lane right.
+                lane++; 
               } 
               else {
                 speed_diff -= MAX_ACC;
