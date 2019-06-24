@@ -23,9 +23,11 @@ The track contains a total of 181 waypoints, with the last waypoint mapping back
 
 3. **Trajectory Generation (line 210-310)**
 We take all the left over points from the previous path and it will always be lesser than 50. The simulator runs 50 frames a seconds. So we need to fill the remaining points in the future X, Y values vector. We lookahead an arbritary 30m ahead
-and try to generate points. Since we have generate a smooth curve, we first linearize it, then generate Y points from the X points by using the Spline function. Since Spline was also used to fit the ptsx and ptsy, now all 50 points are fit using Spline producing a smooth jerkless curve for the simulator to accept and move the car.
+and try to generate points. Since we have generate a smooth curve, we first linearize it, then generate Y points from the X points by using the Spline function as indicated in the diagram below.
 
+![spline fit](https://github.com/abhisheksreesaila/CarND-Path-Planning-Project/blob/master/spline%20fit.png?raw=true "Spline Fit")
 
+Since Spline was also used to fit the ptsx and ptsy, now all 50 points are fit using Spline producing a smooth jerkless curve for the simulator to accept and move the car.
 
 
 ### Simulator.
