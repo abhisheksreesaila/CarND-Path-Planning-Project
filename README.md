@@ -12,7 +12,7 @@ Self-Driving Car Engineer Nanodegree Program
 # Model Documentation
 The codebase is driven by main.cpp and is divided into 3 main parts:-
 
-1. **Read waypoint and telemetry data. (line 29-117) **
+1. **Read waypoint and telemetry data. (line 29-117)**
 Read data/highway_map.csv there is a list of waypoints that go all the way around the track.
 The track contains a total of 181 waypoints, with the last waypoint mapping back around to the first. The waypoints are in the middle of the double-yellow dividing line in the center of the highway.
 
